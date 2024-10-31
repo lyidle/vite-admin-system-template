@@ -3,7 +3,7 @@ import useUserStore from "@/store/User"
 // 进度条
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
-import { GET_TOKEN } from "@/utils/token"
+import { get_local } from "@/utils/localStorage"
 import router from "@/router"
 NProgress.configure({
   easing: "ease", // 动画方式，和css动画属性一样（默认：ease）
@@ -45,7 +45,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
   }
   NProgress.start()
   // 判断token存在与否
-  if (GET_TOKEN("TOKEN")) {
+  if (get_local("TOKEN")) {
     // 有token
     // 禁止去login
     if (to.path === "/login") {
