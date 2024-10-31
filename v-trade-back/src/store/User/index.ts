@@ -9,7 +9,7 @@ import type {
 } from "@/api/user/type"
 import type { UserState } from "@/store/User/Type"
 // token方法简化
-import { SET_TOKEN, GET_TOKEN, REMOVE_TOKEN } from "@/utils/token"
+import { set_local, get_local, remove_local } from "@/utils/localStorage"
 // 引入需要权限判断的路由
 import { constantRoute, anyRoute, asyncRoute } from "@/router/routes"
 // 引入路由
@@ -58,7 +58,7 @@ function filterRoutes(asyncRoute: any, routes: any, _this: any) {
 export default defineStore("User", {
   state(): UserState {
     return {
-      token: GET_TOKEN("TOKEN") || "", //用户唯一标识token
+      token: get_local("TOKEN") || "", //用户唯一标识token
       menuRoutes: [], //仓库存储生成菜单需要数组（路由）
       userInfo: {},
     }
@@ -69,7 +69,7 @@ export default defineStore("User", {
       const state = result.code
       if (state === 20000) {
         this.token = result.data.token || ""
-        SET_TOKEN("TOKEN", this.token)
+        set_local("TOKEN", this.token)
       } else return Promise.reject(new Error(result.message))
     },
     async userInfo() {
@@ -102,7 +102,7 @@ export default defineStore("User", {
         this.token = ""
         this.$state.userInfo.username = ""
         this.$state.userInfo.avatar = ""
-        REMOVE_TOKEN("TOKEN")
+        remove_local("TOKEN")
       } else return Promise.reject(new Error(result.message))
     },
   },

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_TOKEN } from "@/utils/token"
+import { get_local } from "@/utils/localStorage"
 // 第一步：利用axios对象的create方法，去创建axios实例（其他的配置：基础路径、超时的时间）
 const request = axios.create({
   timeout: 5000,
@@ -7,7 +7,7 @@ const request = axios.create({
 // 第二步：req实例添加请求与响应拦截器
 request.interceptors.request.use((config) => {
   //config配置对象，headers属性请求头，经常给服务器端携带公共参数
-  const token = GET_TOKEN("TOKEN") || undefined
+  const token = get_local("TOKEN") || undefined
   // 存在token 就携带token发起信息
   if (token) {
     config.headers.token = token
