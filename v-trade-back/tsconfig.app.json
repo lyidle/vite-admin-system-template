@@ -20,11 +20,13 @@
     "noUnusedParameters": false, //是否检查未使用的参数
     "noFallthroughCasesInSwitch": true,
 
-    //配置 @
+    //配置 @ commen
     "baseUrl": ".",
     "paths": {
       "@": ["src"],
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "commen": ["src/components"],
+      "commen/*": ["src/components/*"]
     }
   },
   "include": [

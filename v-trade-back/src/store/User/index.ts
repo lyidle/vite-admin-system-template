@@ -5,7 +5,6 @@ import type {
   loginForm,
   loginResponseData,
   userInfoResponseData,
-  userLogoutResponseData,
 } from "@/api/user/type"
 import type { UserState } from "@/store/User/Type"
 // token方法简化
@@ -66,44 +65,35 @@ export default defineStore("User", {
   actions: {
     async userLogin(data: loginForm) {
       const result: loginResponseData = await reqLogin(data)
-      const state = result.code
-      if (state === 20000) {
-        this.token = result.data.token || ""
-        set_local("TOKEN", this.token)
-      } else return Promise.reject(new Error(result.message))
+      this.token = result.data.token || ""
+      set_local("TOKEN", this.token)
     },
     async userInfo() {
       const result: userInfoResponseData = await reqUserInfo()
-      if (result.code === 20000) {
-        Object.keys(result.data).forEach((item) => {
-          if (item === "name") {
-            this.$state.userInfo.username = result.data[item]
-          } else {
-            // @ts-ignore
-            this.$state.userInfo[item] = result.data[item]
-          }
-        })
-        // 过滤出有权限的路由
-        filterRoutes(
-          // 使用深拷贝
-          cloneDeep(asyncRoute),
-          result.data.routes,
-          this
-        )
-      } else {
-        return Promise.reject("获取用户信息失败~")
-      }
+      Object.keys(result.data).forEach((item) => {
+        if (item === "name") {
+          this.$state.userInfo.username = result.data[item]
+        } else {
+          // @ts-ignore
+          this.$state.userInfo[item] = result.data[item]
+        }
+      })
+      // 过滤出有权限的路由
+      filterRoutes(
+        // 使用深拷贝
+        cloneDeep(asyncRoute),
+        result.data.routes,
+        this
+      )
     },
     async userLogout() {
       // 1.服务端清除 token
-      const result: userLogoutResponseData = await reqLogout()
-      if (result.code === 20000) {
-        // 2.清除仓库和localstorage中用户相关信息
-        this.token = ""
-        this.$state.userInfo.username = ""
-        this.$state.userInfo.avatar = ""
-        remove_local("TOKEN")
-      } else return Promise.reject(new Error(result.message))
+      await reqLogout()
+      // 2.清除仓库和localstorage中用户相关信息
+      this.token = ""
+      this.$state.userInfo.username = ""
+      this.$state.userInfo.avatar = ""
+      remove_local("TOKEN")
     },
   },
   getters: {},

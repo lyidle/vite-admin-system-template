@@ -18,8 +18,13 @@ request.interceptors.request.use((config) => {
 request.interceptors.response.use(
   (response) => {
     // 简化数据 直接得到data
-    // 还可以判断一下返回码是否正确，不正确进一步的阻止，并提示等
-    return response.data
+    // 这里的状态码是后端返回的状态码
+    if (response.data.code == 200 || response.data.code == 20000)
+      return response.data
+    else {
+      // 有信息就返回信息 没有 就把数据返回自行判断
+      throw new Error(response.data.data.message || response.data.message)
+    }
   },
   (error) => {
     // 错误信息
@@ -46,11 +51,8 @@ request.interceptors.response.use(
         break
     }
     // 错误提示信息
-    ElMessage({
-      type: "error",
-      message,
-    })
-    return Promise.reject(new Error(error.message || "Error"))
+    ElNotification.error(message)
+    return Promise.reject(new Error(message || error.message || "Error"))
   }
 )
 // 对外暴露

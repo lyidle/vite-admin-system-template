@@ -11,7 +11,7 @@
         >
           <el-form-item></el-form-item>
           <h1>Hello</h1>
-          <h2>欢迎来到硅谷甄选</h2>
+          <h2>欢迎来到{{ title }}</h2>
           <el-form-item prop="username">
             <el-input
               placeholder=""
@@ -65,6 +65,7 @@ const userStore = useUserStore()
 let loading = ref(false)
 // 收集账号与密码的数据
 const loginForm = reactive({ username: "admin", password: "111111" })
+const title = import.meta.env.VITE_APP_TITLE
 // 表单校验规则
 const rules = {
   username: [
@@ -90,6 +91,7 @@ async function login() {
     // 保证全部表单相校验通过再发请求
     await loginForms.value.validate()
   } catch (error) {
+    ElMessage.warning("请输入符合规则的信息~")
     return
   }
   // 按钮开始加载
@@ -109,16 +111,10 @@ async function login() {
       // 通过jp转换返回的错误信息来判断是否是json
       // 不是就是null等类型无法jp的类型 输出预定义信息
       Boolean(JSON.parse((error as Error).message))
-      ElNotification({
-        type: "error",
-        message: `请输入正确的信息~`,
-      })
+      ElMessage.error(`请输入正确的信息~`)
     } catch (_) {
       // 是字符串类型就直接打印
-      ElNotification({
-        type: "error",
-        message: (error as Error).message,
-      })
+      ElMessage.error((error as Error).message)
     }
     loading.value = false
   }

@@ -1,8 +1,6 @@
 import vue from "@vitejs/plugin-vue"
 // setup 扩展，用来定义组件名
 import VueSetupExtend from "vite-plugin-vue-setup-extend"
-// 打包分析
-import { visualizer } from "rollup-plugin-visualizer"
 // 自动导入
 import AutoImport from "unplugin-auto-import/vite"
 // 自动导入组件
@@ -28,12 +26,6 @@ export default [
   UnoCSS(),
   // setup name
   VueSetupExtend(),
-  // 打包体积分析
-  visualizer({
-    // 是否自动打开
-    open: false,
-    filename: "visualizer.html", //分析图生成的文件名
-  }),
   AutoImport({
     // 自动导入的插件
     imports: [
