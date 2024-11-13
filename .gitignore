@@ -89,7 +89,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-*/*/dist
+v-trade-back/dist
 
 # Gatsby files
 .cache/
