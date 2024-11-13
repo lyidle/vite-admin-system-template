@@ -114,15 +114,17 @@
           </template>
         </el-table-column>
         <el-table-column prop="prop" label="操作">
-          <template #="{ $index }">
-            <el-button
-              type="danger"
-              size="small"
-              style="margin: 5px"
-              @click="saleAttr.splice($index, 1)"
+          <template #="{ $index, row }">
+            <el-popconfirm
+              :title="`你确定要删除${row.saleAttrName}么？`"
+              @confirm="saleAttr.splice($index, 1)"
             >
-              <el-icon><i class="i-ep-delete" /></el-icon>
-            </el-button>
+              <template #reference>
+                <el-button type="danger" size="small" style="margin: 5px">
+                  <el-icon><i class="i-ep-delete" /></el-icon>
+                </el-button>
+              </template>
+            </el-popconfirm>
           </template>
         </el-table-column>
       </el-table>
@@ -272,11 +274,6 @@ function toLook(row: SaleAttr) {
     baseSaleAttrId,
     saleAttrValueName: saleAttrValue as string,
   }
-  // 非法判断 属性值不能为空
-  if (newSaleAttrValue.saleAttrValueName.trim() === "") {
-    ElMessage.error("属性值不能为空~")
-    return
-  }
   //判断属性值是否在数组当中存在
   const repeat = row.spuSaleAttrValueList.find((item) => {
     return item.saleAttrValueName == saleAttrValue
@@ -286,6 +283,12 @@ function toLook(row: SaleAttr) {
     return
   }
   row.spuSaleAttrValueList.push(newSaleAttrValue)
+  // 非法判断 属性值不能为空
+  if (newSaleAttrValue.saleAttrValueName.trim() === "") {
+    ElMessage.error("属性值不能为空~")
+    // 为空 删除添加进去的数据
+    row.spuSaleAttrValueList.splice(row.spuSaleAttrValueList.length - 1, 1)
+  }
   // 切换为查看模式
   row.flag = false
 }

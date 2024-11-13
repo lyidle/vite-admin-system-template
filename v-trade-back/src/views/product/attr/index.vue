@@ -112,14 +112,17 @@
             </template>
           </el-table-column>
           <el-table-column prop="prop" label="操作" width="width">
-            <template #="{ $index }">
-              <el-button
-                type="danger"
-                @click="attrParams.attrValueList.splice($index, 1)"
-                size="small"
+            <template #="{ $index, row }">
+              <el-popconfirm
+                :title="`你确定要删除${row.valueName}么？`"
+                @confirm="attrParams.attrValueList.splice($index, 1)"
               >
-                <el-icon><i class="i-ep-delete" /></el-icon>
-              </el-button>
+                <template #reference>
+                  <el-button type="danger" size="small">
+                    <el-icon><i class="i-ep-delete" /></el-icon>
+                  </el-button>
+                </template>
+              </el-popconfirm>
             </template>
           </el-table-column>
         </el-table>
