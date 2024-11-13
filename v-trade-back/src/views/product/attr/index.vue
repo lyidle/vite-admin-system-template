@@ -9,7 +9,7 @@
           @click="addAttr"
           v-if="UserStore.$state.userInfo.buttons?.includes('btn.Attr.add')"
         >
-          <el-icon><ep-Plus /></el-icon>
+          <el-icon><i class="i-ep-plus" /></el-icon>
           <span>添加平台属性</span>
         </el-button>
         <el-button
@@ -17,7 +17,7 @@
           type="primary"
           v-hasButton="'btn.Attr.add:添加平台属性'"
         >
-          <el-icon><ep-Plus /></el-icon>
+          <el-icon><i class="i-ep-plus" /></el-icon>
           <span>添加平台属性</span>
         </el-button>
         <el-table style="width: 100%" border :data="attrList">
@@ -49,7 +49,7 @@
                 @click="updateAttr(row)"
                 v-hasButton="'btn.Attr.update:编辑平台属性'"
               >
-                <el-icon><ep-Edit /></el-icon>
+                <el-icon><i class="i-ep-edit" /></el-icon>
               </el-button>
               <el-popconfirm
                 :title="`你确定要删除${row.attrName}么?`"
@@ -61,7 +61,7 @@
                     size="small"
                     v-hasButton="'btn.Attr.remove:删除平台属性'"
                   >
-                    <el-icon><ep-Delete /></el-icon>
+                    <el-icon><i class="i-ep-delete" /></el-icon>
                   </el-button>
                 </template>
               </el-popconfirm>
@@ -83,7 +83,7 @@
           :disabled="attrParams.attrName ? false : true"
           @click="addAttrValue"
         >
-          <el-icon><ep-Plus /></el-icon>
+          <el-icon><i class="i-ep-plus" /></el-icon>
           <span>添加属性值</span>
         </el-button>
         <el-button @click="cancel">取消</el-button>
@@ -118,7 +118,7 @@
                 @click="attrParams.attrValueList.splice($index, 1)"
                 size="small"
               >
-                <el-icon><ep-Delete /></el-icon>
+                <el-icon><i class="i-ep-delete" /></el-icon>
               </el-button>
             </template>
           </el-table-column>

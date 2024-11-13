@@ -9,11 +9,11 @@
           @click="addSpu"
           v-if="UserStore.$state.userInfo.buttons?.includes('btn.Spu.add')"
         >
-          <el-icon><ep-Plus /></el-icon>
+          <el-icon><i class="i-ep-plus" /></el-icon>
           <span>添加SPU</span>
         </el-button>
         <el-button v-else type="primary" v-hasButton="'btn.Spu.add:添加SPU'">
-          <el-icon><ep-Plus /></el-icon>
+          <el-icon><i class="i-ep-plus" /></el-icon>
           <span>添加SPU</span>
         </el-button>
         <el-table border style="width: 100%" :data="records">
@@ -38,7 +38,7 @@
                 v-hasButton="'btn.Spu.addsku:添加SKU'"
                 style="margin: 5px"
               >
-                <el-icon><ep-Plus /></el-icon>
+                <el-icon><i class="i-ep-plus" /></el-icon>
               </el-button>
               <el-button
                 type="success"
@@ -48,7 +48,7 @@
                 v-hasButton="'btn.Spu.update:修改SKU'"
                 style="margin: 5px"
               >
-                <el-icon><ep-Edit /></el-icon>
+                <el-icon><i class="i-ep-edit" /></el-icon>
               </el-button>
               <el-button
                 type="info"
@@ -58,7 +58,7 @@
                 v-hasButton="'btn.Spu.skus:查看SKU'"
                 style="margin: 5px"
               >
-                <el-icon><ep-View /></el-icon>
+                <el-icon><i class="i-ep-view" /></el-icon>
               </el-button>
               <el-popconfirm
                 :title="`你确定要删除${row.spuName}么?`"
@@ -72,7 +72,7 @@
                     v-hasButton="'btn.Spu.delete:删除SKU'"
                     style="margin: 5px"
                   >
-                    <el-icon><ep-Delete /></el-icon>
+                    <el-icon><i class="i-ep-delete" /></el-icon>
                   </el-button>
                 </template>
               </el-popconfirm>

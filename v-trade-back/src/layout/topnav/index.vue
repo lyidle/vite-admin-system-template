@@ -2,8 +2,8 @@
   <div class="topnav-left">
     <!-- 触发父组件的changeIcon事件 改变icon图标 -->
     <el-icon class="el-icon" @click="$emit('changeIcon')" v-if="isShowIcon">
-      <ep-fold v-if="fold" />
-      <ep-expand v-else />
+      <i class="i-ep-fold" v-if="fold" />
+      <i class="i-ep-expand" v-else />
     </el-icon>
     <BreadCrumb />
   </div>

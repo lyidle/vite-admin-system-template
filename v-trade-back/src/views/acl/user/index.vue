@@ -92,7 +92,7 @@
               @click="setRole(row)"
               v-hasButton="'btn.User.assgin:对用户分配角色'"
             >
-              <el-icon><ep-User /></el-icon>
+              <el-icon><i class="i-ep-user" /></el-icon>
               <span>分配角色</span>
             </el-button>
             <el-button
@@ -101,7 +101,7 @@
               @click="updateUser(row)"
               v-hasButton="'btn.User.update:编辑用户'"
             >
-              <el-icon><ep-Edit /></el-icon>
+              <el-icon><i class="i-ep-edit" /></el-icon>
               <span>编辑</span>
             </el-button>
             <el-popconfirm
@@ -115,7 +115,7 @@
                   size="small"
                   v-hasButton="'btn.User.remove:删除用户'"
                 >
-                  <el-icon><ep-Delete /></el-icon>
+                  <el-icon><i class="i-ep-delete" /></el-icon>
                   <span>删除</span>
                 </el-button>
               </template>

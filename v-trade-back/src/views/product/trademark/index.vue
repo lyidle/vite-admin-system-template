@@ -8,7 +8,7 @@
           @click="addTrademark"
           v-hasButton="'btn.Trademark.add:添加品牌'"
         >
-          <el-icon><ep-plus /></el-icon>
+          <el-icon><i class="i-ep-plus" /></el-icon>
           <span style="margin-left: 5px">添加品牌</span>
         </el-button>
         <!-- 表格 -->
@@ -30,7 +30,7 @@
                 @click="updateTrademark(row)"
                 v-hasButton="'btn.Trademark.update:修改品牌'"
               >
-                <el-icon><ep-Edit /></el-icon>
+                <el-icon><i class="i-ep-edit" /></el-icon>
               </el-button>
               <el-popconfirm
                 :title="`你确认要删除${row.tmName}么?`"
@@ -42,7 +42,7 @@
                     size="small"
                     v-hasButton="'btn.Trademark.remove:删除品牌'"
                   >
-                    <el-icon><ep-Delete /></el-icon
+                    <el-icon><i class="i-ep-delete" /></el-icon
                   ></el-button>
                 </template>
               </el-popconfirm>
@@ -99,7 +99,9 @@
               :src="trademarkParams.logoUrl"
               class="avatar"
             />
-            <el-icon v-else class="avatar-uploader-icon"><ep-Plus /></el-icon>
+            <el-icon v-else class="avatar-uploader-icon"
+              ><i class="i-ep-plus"
+            /></el-icon>
           </el-upload>
         </el-form-item>
       </el-form>

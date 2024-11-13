@@ -1,9 +1,7 @@
 <template>
-  <Icon :icon="`ep:arrow-right`" />
+  <i class="i-ep-arrow-right" />
 </template>
 
-<script setup lang="ts" name="EpArrowRight">
-import { Icon } from "@iconify/vue"
-</script>
+<script setup lang="ts" name="EpArrowRight"></script>
 
 <style scoped></style>

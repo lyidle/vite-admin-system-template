@@ -1,9 +1,7 @@
 <template>
-  <Icon icon="ep:sunny" />
+  <i class="i-ep-sunny" />
 </template>
 
-<script setup lang="ts" name="EpUser">
-import { Icon } from "@iconify/vue"
-</script>
+<script setup lang="ts" name="EpSunny"></script>
 
 <style scoped></style>

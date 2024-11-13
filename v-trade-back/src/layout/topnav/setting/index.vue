@@ -1,10 +1,10 @@
 <template>
   <div class="topnav-right">
     <el-button size="small" circle @click="updateRefresh"
-      ><el-icon><ep-Refresh /></el-icon
+      ><el-icon><i class="i-ep-refresh" /></el-icon
     ></el-button>
     <el-button size="small" circle @click="FullScreen"
-      ><el-icon><ep-FullScreen /></el-icon
+      ><el-icon><i class="i-ep-full-screen" /></el-icon
     ></el-button>
     <el-popover
       placement="bottom"
@@ -17,8 +17,8 @@
           <el-switch
             v-model="isAutoFold"
             size="small"
-            :active-icon="AutoSvg"
-            :inactive-icon="AutoSvg"
+            :active-icon="Auto"
+            :inactive-icon="UnAuto"
             inline-prompt
             @change="settingStore.setAutoFold(JSON.stringify(isAutoFold))"
           />
@@ -37,8 +37,8 @@
           <el-switch
             v-model="isTitle"
             size="small"
-            :active-icon="EpMoonNight"
-            :inactive-icon="EpSunny"
+            :active-icon="EpView"
+            :inactive-icon="EpHide"
             inline-prompt
             @change="settingStore.setTitle(JSON.stringify(isTitle))"
           />
@@ -46,7 +46,7 @@
       </el-form>
 
       <template #reference>
-        <el-button size="small" circle><ep-Setting /></el-button>
+        <el-button size="small" circle><i class="i-ep-setting" /></el-button>
       </template>
     </el-popover>
     <!-- 用户头像 -->
@@ -57,7 +57,7 @@
         <!-- 用户名 -->
         {{ userStore.$state.userInfo.username }}
         <el-icon class="el-icon--right">
-          <ep-arrow-down />
+          <i class="i-ep-arrow-down" />
         </el-icon>
       </span>
       <template #dropdown>
@@ -75,10 +75,13 @@
 import useSettingStore from "@/store/Setting"
 import useUserStore from "@/store/User"
 // 引入自动折叠菜单的 switch 图标
-import AutoSvg from "@/components/Icons/svg/Auto/index.vue"
+import Auto from "@/components/Icons/MtS/Auto.vue"
+import UnAuto from "@/components/Icons/MtS/UnAuto.vue"
 // 引入图标
 import EpMoonNight from "@/components/Icons/Ep/MoonNight.vue"
 import EpSunny from "@/components/Icons/Ep/Sunny.vue"
+import EpView from "@/components/Icons/Ep/EpView.vue"
+import EpHide from "@/components/Icons/Ep/EpHide.vue"
 // 使用路由
 const $router = useRouter()
 const $route = useRoute()

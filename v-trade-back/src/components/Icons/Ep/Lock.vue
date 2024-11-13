@@ -1,9 +1,7 @@
 <template>
-  <Icon icon="ep:lock" />
+  <i class="i-ep-lock" />
 </template>
 
-<script setup lang="ts" name="EpUser">
-import { Icon } from "@iconify/vue"
-</script>
+<script setup lang="ts" name="EpUser"></script>
 
 <style scoped></style>

@@ -8,14 +8,13 @@
       :to="item.path"
     >
       <el-icon style="vertical-align: middle">
-        <Icon :icon="`ep:${item.meta?.icon}`" />
+        <i :class="`${item.meta?.icon}`" />
       </el-icon>
       <span>{{ item.meta.title }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 <script lang="ts" setup name="BreadCrumb">
-import { Icon } from "@iconify/vue"
 import EpArrowRight from "@/components/Icons/Ep/ArrowRight.vue"
 </script>
 <style scoped lang="scss"></style>

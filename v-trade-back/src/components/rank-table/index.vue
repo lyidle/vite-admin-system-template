@@ -1,12 +1,20 @@
 <template>
   <div class="container" v-if="data">
     <div class="content" v-for="(item, index) in data" :key="item.id">
-      <div class="label item" v-if="item.label.src">
+      <div class="label item">
         <component
-          :is="OneWave"
+          :is="item.label.src"
           class="rank"
           :style="{ color: item.label.color, 'font-size': item.label.size }"
+          v-if="item.label.src"
         ></component>
+        <template v-else>
+          <component
+            :is="OneWave"
+            class="rank"
+            :style="{ color: item.label.color, 'font-size': item.label.size }"
+          ></component>
+        </template>
       </div>
       <div class="region item">{{ item.name }}</div>
       <div class="progress item">

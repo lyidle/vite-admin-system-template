@@ -11,7 +11,7 @@
         @click="addRole"
         v-hasButton="'btn.Role.add:添加职位'"
       >
-        <el-icon><ep-Plus /></el-icon>
+        <el-icon><i class="i-ep-plus" /></el-icon>
         <span>添加职位</span>
       </el-button>
       <el-table style="width: 100%; margin-top: 10px" border :data="allRole">
@@ -55,7 +55,7 @@
               @click="assignRole(row)"
               v-hasButton="'btn.Role.assgin:对职位分配权限'"
             >
-              <el-icon><ep-User /></el-icon>
+              <el-icon><i class="i-ep-user" /></el-icon>
               <span>分配权限</span>
             </el-button>
             <el-button
@@ -64,7 +64,7 @@
               @click="updateRole(row)"
               v-hasButton="'btn.Role.update:编辑职位'"
             >
-              <el-icon><ep-Edit /></el-icon>
+              <el-icon><i class="i-ep-edit" /></el-icon>
               <span>编辑</span>
             </el-button>
             <el-popconfirm
@@ -78,7 +78,7 @@
                   size="small"
                   v-hasButton="'btn.Role.remove:删除职位'"
                 >
-                  <el-icon><ep-Delete /></el-icon>
+                  <el-icon><i class="i-ep-delete" /></el-icon>
                   <span>编辑</span>
                 </el-button>
               </template>

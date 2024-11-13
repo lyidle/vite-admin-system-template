@@ -1,9 +1,7 @@
 <template>
-  <Icon icon="ep:user" />
+  <i class="i-ep-user" />
 </template>
 
-<script setup lang="ts" name="EpUser">
-import { Icon } from "@iconify/vue"
-</script>
+<script setup lang="ts" name="EpUser"></script>
 
 <style scoped></style>

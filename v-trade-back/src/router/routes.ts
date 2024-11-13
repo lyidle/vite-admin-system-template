@@ -1,3 +1,17 @@
+// @unocss-include
+const icons = [
+  "i-ep-home-filled",
+  "i-ep-data-line",
+  "i-ep-goods",
+  "i-ep-shopping-cart-full",
+  "i-ep-chrome-filled",
+  "i-ep-calendar",
+  "i-ep-orange",
+  "i-ep-lock",
+  "i-ep-user",
+  "i-ep-user-filled",
+  "i-ep-monitor",
+] as const
 // 常量路由
 export const constantRoute = [
   {
@@ -14,7 +28,7 @@ export const constantRoute = [
       {
         path: "/home",
         name: "Home",
-        meta: { title: "首页", icon: "home-filled" },
+        meta: { title: "首页", icon: icons[0] },
         component: () => import("@/views/home/index.vue"),
       },
     ],
@@ -22,7 +36,7 @@ export const constantRoute = [
   {
     path: "/screen",
     name: "Screen",
-    meta: { title: "数据大屏", icon: "data-line" },
+    meta: { title: "数据大屏", icon: icons[1] },
     component: () => import("@/views/screen/index.vue"),
   },
   {
@@ -37,32 +51,32 @@ export const asyncRoute = [
   {
     path: "/product",
     name: "Product",
-    meta: { title: "商品管理", icon: "goods" },
+    meta: { title: "商品管理", icon: icons[2] },
     component: () => import("@/layout/index.vue"),
     redirect: "/product/trademark",
     children: [
       {
         path: "/product/trademark",
         name: "TradeMark",
-        meta: { title: "品牌管理", icon: "shopping-cart-full" },
+        meta: { title: "品牌管理", icon: icons[3] },
         component: () => import("@/views/product/trademark/index.vue"),
       },
       {
         path: "/product/attr",
         name: "Attr",
-        meta: { title: "属性管理", icon: "chrome-filled" },
+        meta: { title: "属性管理", icon: icons[4] },
         component: () => import("@/views/product/attr/index.vue"),
       },
       {
         path: "/product/spu",
         name: "Spu",
-        meta: { title: "Spu管理", icon: "calendar" },
+        meta: { title: "Spu管理", icon: icons[5] },
         component: () => import("@/views/product/spu/index.vue"),
       },
       {
         path: "/product/sku",
         name: "Sku",
-        meta: { title: "Sku管理", icon: "orange" },
+        meta: { title: "Sku管理", icon: icons[6] },
         component: () => import("@/views/product/sku/index.vue"),
       },
     ],
@@ -70,26 +84,26 @@ export const asyncRoute = [
   {
     path: "/acl",
     name: "Acl",
-    meta: { title: "权限管理", icon: "lock" },
+    meta: { title: "权限管理", icon: icons[7] },
     component: () => import("@/layout/index.vue"),
     redirect: "/acl/user",
     children: [
       {
         path: "/acl/user",
         name: "User",
-        meta: { title: "用户管理", icon: "user" },
+        meta: { title: "用户管理", icon: icons[8] },
         component: () => import("@/views/acl/user/index.vue"),
       },
       {
         path: "/acl/role",
         name: "Role",
-        meta: { title: "角色管理", icon: "user-filled" },
+        meta: { title: "角色管理", icon: icons[9] },
         component: () => import("@/views/acl/role/index.vue"),
       },
       {
         path: "/acl/permission",
         name: "Permission",
-        meta: { title: "菜单管理", icon: "monitor" },
+        meta: { title: "菜单管理", icon: icons[10] },
         component: () => import("@/views/acl/permission/index.vue"),
       },
     ],

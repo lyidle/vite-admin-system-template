@@ -41,10 +41,10 @@
             >
               <el-icon>
                 <template v-if="row.isSale == 1">
-                  <ep-Bottom />
+                  <i class="i-ep-bottom" />
                 </template>
                 <template v-else>
-                  <ep-Top />
+                  <i class="i-ep-top" />
                 </template>
               </el-icon>
             </el-button>
@@ -54,7 +54,7 @@
               @click="openElmessage"
               v-hasButton="'btn.Sku.update:修改商品'"
             >
-              <el-icon><ep-Edit /></el-icon>
+              <el-icon><i class="i-ep-edit" /></el-icon>
             </el-button>
             <el-button
               type="info"
@@ -62,7 +62,7 @@
               @click="findSku(row)"
               v-hasButton="'btn.Sku.detail:查看详情'"
             >
-              <el-icon><ep-InfoFilled /></el-icon>
+              <el-icon><i class="i-ep-info-filled" /></el-icon>
             </el-button>
             <el-popconfirm
               :title="`你确定要删除${row.skuName}么？`"
@@ -74,7 +74,7 @@
                   size="small"
                   v-hasButton="'btn.Sku.remove:删除商品'"
                 >
-                  <el-icon><ep-Delete /></el-icon>
+                  <el-icon><i class="i-ep-delete" /></el-icon>
                 </el-button>
               </template>
             </el-popconfirm>

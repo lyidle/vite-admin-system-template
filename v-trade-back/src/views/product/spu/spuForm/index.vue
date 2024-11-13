@@ -37,7 +37,7 @@
         :on-remove="handleRemove"
         :before-upload="beforeUpload"
       >
-        <el-icon><ep-Plus /></el-icon>
+        <el-icon><i class="i-ep-plus" /></el-icon>
       </el-upload>
 
       <el-dialog v-model="dialogVisible" style="overflow: hidden">
@@ -73,7 +73,7 @@
         :disabled="saleAttrIdAndValueName ? false : true"
         @click="addSaleAttr"
       >
-        <el-icon><ep-plus /></el-icon>
+        <el-icon><i class="i-ep-plus" /></el-icon>
         <span>添加属性值</span>
       </el-button>
       <!-- table展示销售属性与属性值的地方 -->
@@ -109,7 +109,7 @@
               v-else
               @click="toEdit(row)"
             >
-              <el-icon><ep-plus /></el-icon>
+              <el-icon><i class="i-ep-plus" /></el-icon>
             </el-button>
           </template>
         </el-table-column>
@@ -121,7 +121,7 @@
               style="margin: 5px"
               @click="saleAttr.splice($index, 1)"
             >
-              <el-icon><ep-Delete /></el-icon>
+              <el-icon><i class="i-ep-delete" /></el-icon>
             </el-button>
           </template>
         </el-table-column>

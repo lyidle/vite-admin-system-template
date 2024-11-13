@@ -64,7 +64,7 @@ const $route = useRoute()
 const userStore = useUserStore()
 let loading = ref(false)
 // 收集账号与密码的数据
-const loginForm = reactive({ username: "tes123", password: "321654" })
+const loginForm = reactive({ username: "admin", password: "111111" })
 // 表单校验规则
 const rules = {
   username: [
