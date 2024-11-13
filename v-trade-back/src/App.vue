@@ -35,6 +35,8 @@ function setTitleTip() {
   let leaveTimer: any
   // 窗口获取焦点的回调
   const enterCallback = () => {
+    // 非空判断
+    if (!temp) return
     // 回来时都要清除离开的定时器避免错乱
     clearTimeout(leaveTimer)
     // 提示
@@ -48,6 +50,8 @@ function setTitleTip() {
   }
   // 窗口失去焦点的回调
   const leaveCallback = () => {
+    // 非空判断
+    if (!document.title) return
     // 离开时记录
     if (document.title !== leaveTip && document.title !== enterTip)
       temp = document.title

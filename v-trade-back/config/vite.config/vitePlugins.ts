@@ -12,7 +12,7 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 // element-plus样式
 import ElementPlus from "unplugin-element-plus/vite"
 //分析Vite插件的运行情况
-import Inspect from "vite-plugin-inspect"
+// import Inspect from "vite-plugin-inspect"
 import UnoCSS from "unocss/vite"
 // 模拟数据
 // mockjs -S vite-plugin-mock -D
@@ -66,5 +66,5 @@ export default [
     directoryAsNamespace: true,
   }),
   // 分析组件
-  Inspect(),
+  // Inspect(),
 ]
